@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image
+        {
+            display: block;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 150px;  
+        }
+        *{
+            border-radius: 7px;
+            border-color: rgb(233, 233, 233);
+            font-family: 'Dosis', sans-serif;
+            
+        }
+        input{
+            border: 1px solid rgb(192, 192, 192);
+            
+        }
+        #box
+        {
+            height:auto;
+            width: 400px;
+            /* border: 1px solid red; */
+            margin: auto;
+            padding: 30px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            text-align: center;
+            font-size: 20px;
+        }
+        #submit
+        {
+            height:50px;
+            width:400px;
+            margin: auto;
+            display: block;
+            border: 0px;
+            
+            color: grey;
+        }
+        p{
+            text-align: center;
+            color: grey;
+            font-size: 12px;
+        }
+        label{
+            font-size: 15px;
+            color: grey;
+            font-weight: bold;
+            /* margin-left: 10px; */
+        }
+        #fullname
+        {
+            height:35px;width:400px;font-size:12pt;
+        }
+        #email
+        {
+            height:35px;width:400px;font-size:12pt;
+        }
+        #password
+        {
+            height:35px;width:400px;font-size:12pt;
+        }
+        #signin
+        {
+            font-size: 15px;
+        }
+        #google
+        {
+            height:45px;width:400px;font-size:12pt;
+            display: flex;
+            justify-content: center;
+            border: 1px solid grey;
+            align-items: center;
+        }
+        #image
+        {
+            width: 30px;
+            height:30px;
+        }
+        p{
+            margin-left: 10px;
+            color: black;
+            font-size: 15px;
+            
+        }
+    </style>
+</head>
+<body>
+    <img src="https://mma.prnewswire.com/media/1631809/Masai_Logo.jpg?p=facebook" class="image">
+    <div id="box">
+        <form id="form">
+        <h2>Sign In</h2>
+        
+        <label>Email</label>
+        <br>
+        <br>
+        <input type="email" placeholder="  Enter email" id="email">
+        <br>
+        <br>
+        <br>
+        <label>Password</label>
+        <br>
+        <br>
+        <input type="password" placeholder="  Enter password" id="password">
+        <br>
+        <br>
+        <br>
+        <input type="submit" value="SIGN IN" id="submit">
+        <br>
+        <br>
+        <div id="google">
+        <img src="https://pbs.twimg.com/profile_images/1455185376876826625/s1AjSxph_400x400.jpg" id="image">
+        <p><a style="color:black; text-decoration:none;font-weight:600" href="https://www.google.com/"> CONTINUE WITH GOOGLE </a></p>
+    </div>
+        <br>
+        <br>
+    </form>
+        <p id="signin">Don't have an Account? <a href="http://127.0.0.1:5500/signup.html" >Sign Up</a> </p>
+    </div>
+</body>
+</html>
+<script>
+
+var form = document.querySelector("#form")
+
+var user =JSON.parse(localStorage.getItem("users"));
+
+form.addEventListener("submit", myfun)
+
+function myfun(event){
+event.preventDefault();
+var obj = {
+   email:form.email.value,
+   password:form.password.value
+}
+// console.log(user)
+if(user===null)
+   {
+      alert("Please Create an account");
+   }
+   else if(user.email==obj.email && user.password==obj.password){
+      alert("Sign in Successful")
+    //   window.location.href ="https://dashboard.masaischool.com/#/"
+      localStorage.setItem("signin", JSON.stringify(user))  
+   }else{
+       alert("User credential wrong!!")
+   }
+//    console.log(ele)
+
+}
+
+</script>

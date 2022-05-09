@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .image
+        {
+            display: block;
+            align-items: center;
+            margin-left: auto;
+            margin-right: auto;
+            height: 80px;
+            width: 150px;  
+        }
+        *{
+            border-radius: 7px;
+            font-family: 'Dosis', sans-serif;
+        }
+        #box
+        {
+            height:600px;
+            width: 400px;
+            /* border: 1px solid red; */
+            margin: auto;
+            padding: 30px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+        h2{
+            text-align: center;
+            font-size: 20px;
+        }
+        #button
+        {
+            height:50px;
+            width:400px;
+            margin: auto;
+            display: block;
+            border: 0px;
+            color: grey;
+        }
+        p{
+            text-align: center;
+            color: grey;
+            font-size: 12px;
+        }
+        label{
+            font-size: 15px;
+            color: grey;
+            font-weight: bold;
+        }
+        input{
+            border: 1px solid grey;
+            height:35px;width:400px;font-size:12pt;
+        }
+        
+        #signin
+        {
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <img src="https://mma.prnewswire.com/media/1631809/Masai_Logo.jpg?p=facebook" class="image">
+    <div id="box">
+        <form id="form">
+        <h2>Sign Up</h2>
+        <label>Full name</label>
+        <br>
+        <br>
+        <input type="text" placeholder=" Enter Your full name" id="fullname">
+        <br>
+        <br>
+        <br>
+        <label>Email</label>
+        <br>
+        <br>
+        <input type="email" placeholder=" Enter Your email" id="email">
+        <br>
+        <br>
+        <br>
+        <label>Password</label>
+        <br>
+        <br>
+        <input type="password" placeholder=" password" id="password">
+        <br>
+        <br>
+        <br>
+        <p>By signing up, I accept the Masai School <a href="www.google.com">Terms of Service</a> and ackowledge the <a href="www.google.com">Privacy Policy</a>.</p>
+        <br>
+        <br>
+        <input type="submit" value="SIGN UP" id="submit">
+        <br>
+        <br>
+    </form>
+        <p id="signin">Already have an Account? <a href="http://127.0.0.1:5500/signin.html" >Sign In</a> </p>
+    </div>
+</body>
+</html>
+<script>
+  var form  = document.querySelector("form")
+form.addEventListener("submit", myfunction)
+
+// var userData =JSON.parse(localStorage.getItem("users"));
+// console.log(userData)
+
+function myfunction(event){
+    event.preventDefault();
+
+    var data =
+    {
+        firstname: form.fullname.value,
+        email : form.email.value,
+        password: form.password.value
+
+    }
+    localStorage.setItem("users", JSON.stringify(data))
+    window.location.href="signin.html"
+
+}
+    
+</script>
